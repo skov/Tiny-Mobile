@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tiny Mobile</title>
+
+	<!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+	<meta http-equiv="cleartype" content="on" />
+</head>
+<body>
+	<div id="wrapper">
+		<div id="contentFrame">
+			<div id="loader">
+				<div id="icon"></div>
+			</div>
+		</div>
+		<div id="clearFooter"></div>
+	</div>
+
+	<script id="frame" type="text/x-jquery-tmpl">
+		<div id="staging" class="content"></div>
+	</script>
+
+	<script id="tmpl-Page" type="text/x-jquery-tmpl">
+		<h1 class="title">${content.title}</h1>
+		<p class="teaser">${content.teaser}</p>
+		<div class="body">{{html content.body}}</div>
+		<ul id="stagingNav">
+			{{each content.linkList.links}}
+				<li class="pageBtn"><a href="${href}" nohash="${noHash}">${title}</a></li>
+			{{/each}}
+		</ul>
+	</script>
+
+	<script id="tmpl-Homepage" type="text/x-jquery-tmpl">
+		<!--<h1 class="title">${content.title}</h1>
+		<p class="teaser">${content.teaser}</p>
+		<div class="body">{{html content.body}}</div>-->
+		
+	    <div class="gallery">
+		<button class="prev"><span>›</span></button>
+            <ul class="slides">
+                <li><img class="banner" src="/~/media/${content.img}.ashx"/></li>
+                <li style="display:none"><img class="banner" src="/~/media/${content.img}.ashx"/></li>
+            </ul>
+			
+			<button class="next"><span>›</span></button>
+			
+        </div>
+	
+		
+		<ul id="stagingNav">
+			{{each content.linkList.links}}
+				<li><a href="${href}" nohash="${noHash}"><span></span>${title}</a></li>
+			{{/each}}
+		</ul>
+	</script>
+
+	<script id="tmpl-Newsoverviewpage" type="text/x-jquery-tmpl">
+		<h1 class="title">${content.title}</h1>
+		<p class="teaser">${content.teaser}</p>
+		<div class="body">{{html content.body}}</div>
+		<ul id="newsList">
+			{{each content.linkList.links}}
+				<li>
+					<a href="${href}" nohash="${noHash}">
+						<span class="date">${getDate(date)}</span><br />
+						<h2>${title}</h2>
+					</a>
+				</li>
+			{{/each}}
+		</ul>
+	</script>
+
+	<script id="tmpl-Newsitem" type="text/x-jquery-tmpl">
+		<h1 class="title">${content.title}</h1>
+		<span class="date">${getDate(content.date)}</span>
+		<p class="teaser">${content.teaser}</p>
+		<div class="body">{{html content.body}}</div>
+	</script>
+
+	<script id="tmpl-StoreLocatorPage" type="text/x-jquery-tmpl">
+		<div id="locationInputs">
+			<h1 class="title">${content.title}</h1>
+			<p class="teaser">${content.teaser}</p>
+			<div class="body">{{html content.body}}</div>
+			
+			<form onsubmit="return requestCoords()">
+				<input id="storeLocatorZipCode" class="zipCode" type="search" placeholder="Postnummer" pattern="[0-9]{4}" name="postnummer" title="something" />
+			</form>
+			<a id="storeLocatorGPS" onclick="requestCoords(true)" class="location-gps toTheEdge" data-role="button" data-icon="location" data-iconpos="right">Hvor jeg står (brug GPS)</a>
+		</div>
+	</script>
+
+	<script id="tmpl-StoreListItem" type="text/x-jquery-tmpl">
+		<ul id="stores">
+			{{each d}}
+				<li>
+					<h2>${Name}</h2>
+					<div>
+						${Address}<br />
+						${ZipCode} ${City}<br /><br />
+						<a href="mailto:${Email}">${Email}</a><br />
+						${Telephone}<br /><br />
+						{{html OpeningHours}}
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+	</script>
+</body>
+</html>

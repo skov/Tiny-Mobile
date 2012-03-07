@@ -1,0 +1,30 @@
+{
+	"systemMeta" : {
+		"lang" : "da"
+	},
+	"content" : {
+		"title" : "Page title",
+		"teaser" : "Page teaser content",
+		"body" : "Page body content",
+		"img" : null,
+		"date" : "\/Date(1314800629000+0200)\/",
+		"metaData" : {
+			"pageType" : "Page"
+		},
+		"contentElements" : {
+		},
+		"linkList" : {
+			"links" : [
+				{
+					"href" : "/page/url",
+					"title" : "Page title",
+					"teaser" : "Page teaser content",
+					"img" : null,
+					"date" : "\/Date(1314800650000+0200)\/",
+					"noHash" : false
+				}
+			],
+			"readMore" : "Read more text"
+		}
+	}
+}
