@@ -40,19 +40,6 @@
 		<!--<h1 class="title">${content.title}</h1>
 		<p class="teaser">${content.teaser}</p>
 		<div class="body">{{html content.body}}</div>-->
-		
-	    <div class="gallery">
-		<button class="prev"><span>›</span></button>
-            <ul class="slides">
-                <li><img class="banner" src="/~/media/${content.img}.ashx"/></li>
-                <li style="display:none"><img class="banner" src="/~/media/${content.img}.ashx"/></li>
-            </ul>
-			
-			<button class="next"><span>›</span></button>
-			
-        </div>
-	
-		
 		<ul id="stagingNav">
 			{{each content.linkList.links}}
 				<li><a href="${href}" nohash="${noHash}"><span></span>${title}</a></li>
